@@ -46,11 +46,15 @@ export class ViewAllCustomerComponent {
       reverseButtons: true
     }).then((result) => {
       if (result.isConfirmed) {
-        swalWithBootstrapButtons.fire({
-          title: "Deleted!",
-          text: "Your file has been deleted.",
-          icon: "success"
-        });
+        this.http.delete(`http://localhost:8080/customer-controller/delete-customer/${customer.customerId}`,{responseType:'text'}).subscribe(res=>{
+          this.loadcustomerTable();
+          swalWithBootstrapButtons.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success"
+          });
+        })
+        
       } else if (
         /* Read more about handling dismissals below */
         result.dismiss === Swal.DismissReason.cancel
