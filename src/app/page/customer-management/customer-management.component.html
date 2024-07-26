@@ -4,15 +4,15 @@
 
     <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1"></span>
-        <input type="text" class="form-control" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
+        <input type="text" class="form-control" placeholder="Name" aria-label="Username" [(ngModel)]= "customerObj.name"  aria-describedby="basic-addon1">
       </div>
       <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1"></span>
-        <input type="text" class="form-control" placeholder="city" aria-label="Username" aria-describedby="basic-addon1">
+        <input type="text" class="form-control" placeholder="city" aria-label="Username" [(ngModel)]= "customerObj.city"aria-describedby="basic-addon1">
       </div>
       <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1"></span>
-        <input type="text" class="form-control" placeholder="Contact" aria-label="Username" aria-describedby="basic-addon1">
+        <input type="text" class="form-control" placeholder="Contact" aria-label="Username" [(ngModel)]= "customerObj.contact"aria-describedby="basic-addon1">
       </div>
       <button type="button" class="btn btn-success" (click)="addCustomer()">Add Customer</button>
       
