@@ -1,1 +1,23 @@
-<p>view-all-customer works!</p>
+<app-nav></app-nav>
+<div>
+    <h1 class="bg-black text-white fw-bolder m-3 text-center">View All Customer</h1>
+    <div class="container justify-content-center">
+        <table class="table ">
+            <tr class="bg-black text-white ">
+                <th>ID</th>
+                <th>Name</th>
+                <th>City</th>
+                <th>Contact</th>
+                <th></th>
+            </tr>
+            <tr *ngFor="let customer of customerList">
+                <td>{{customer.customerId}}</td>
+                <td>{{customer.name}}</td>
+                <td>{{customer.city}}</td>
+                <td>{{customer.contact}}</td>
+                <td><button></button></td>
+            </tr>
+        </table>
+    </div>
+
+</div>
