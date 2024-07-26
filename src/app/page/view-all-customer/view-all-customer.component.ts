@@ -69,4 +69,26 @@ export class ViewAllCustomerComponent {
 
   }
 
+  public selectedCustomer:any={
+      "customerId": null,
+      "name": null,
+      "city": null,
+      "contact": null
+  }
+
+  updateCustomer(customer:any){
+    this.selectedCustomer=customer;
+    if(customer!=null){
+      this.selectedCustomer=customer;
+    }
+
+    console.log(customer);
+  }
+
+  saveCustomer(){
+    this.http.put("http://localhost:8080/item-controller/update-item",this.selectedCustomer).subscribe(res=>{
+      console.log(res);
+      
+    })
+  }
 }

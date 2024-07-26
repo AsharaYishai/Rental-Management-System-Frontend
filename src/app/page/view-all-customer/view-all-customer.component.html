@@ -9,6 +9,7 @@
                 <th>City</th>
                 <th>Contact</th>
                 <th></th>
+                <th></th>
             </tr>
             <tr *ngFor="let customer of customerList">
                 <td>{{customer.customerId}}</td>
@@ -16,8 +17,44 @@
                 <td>{{customer.city}}</td>
                 <td>{{customer.contact}}</td>
                 <td><button class="btn btn-danger" (click)="deleteCustomer(customer)"><i class="bi bi-trash-fill"></i></button></td>
+                <td><button class="btn btn-info" (click)="updateCustomer(customer)" data-bs-toggle="modal" data-bs-target="#exampleModal" ><i class="bi bi-pencil-square"></i></button></td>
             </tr>
         </table>
     </div>
 
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"  aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">ID:</label>
+            <input type="text" class="form-control" id="recipient-name" [(ngModel)]="selectedCustomer.customerId" disabled="">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Name:</label>
+            <input type="text" class="form-control" id="recipient-name" [(ngModel)]="selectedCustomer.name" >
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">City:</label>
+            <input type="text" class="form-control" id="recipient-name" [(ngModel)]="selectedCustomer.city" >
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Contact:</label>
+            <input type="text" class="form-control" id="recipient-name" [(ngModel)]="selectedCustomer.contact" >
+          </div>
+          
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="saveCustomer()">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
